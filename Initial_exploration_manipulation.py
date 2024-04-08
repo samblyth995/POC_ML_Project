@@ -4,7 +4,7 @@ import spacy
 nlp = spacy.load("en_core_web_sm")
 #have an inital look at the data
 #file_path = 'POC_ML_Project\Data_exploration\original_data\job_skills.csv'
-file_path = 'POC_ML_Project\Data_exploration\original_data\linkedin_job_postings.csv'
+file_path = 'D:\AI\POC_ML_Project\original_data\linkedin_job_postings.csv'
 #file_path = 'POC_ML_Project\Data_exploration\original_data\job_summary.csv'
 
 
@@ -36,6 +36,7 @@ df = lowercase_text_columns(df)
 #remove special characters
 df['job_title'] = df['job_title'].str.replace('[^a-zA-Z0-9 ]', '', regex=True)
 df_uk=df[df['search_country']=='united kingdom']
+
 #standardise terms
 #df = pd.DataFrame(file_path)
 print(df_uk['job_title'].head(5))
@@ -90,8 +91,8 @@ for key, value in standardization_dict.items():
 
 #print(df.head[['job_title', 'lemmatized_job_title']])
 
-df_uk=df_uk.head(1000)
-df_uk.to_csv("job_postings_1000_UK_prepped.csv")
+# df_uk=df_uk.head(1000)
+df_uk.to_csv("job_postings_full_UK_prepped.csv")
 # Correct syntax to write specific columns to a CSV file
 #df[['job_title', 'lemmatized_job_title']].to_csv("job_postings_1000_prepped.csv", index=False)
 
